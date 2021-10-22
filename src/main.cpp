@@ -1,17 +1,21 @@
 #include <iostream>
+#include <utility>
 #include "TrafficLane.h"
 #include "TrafficParticipant.h"
+#include "TrafficLaneTeleporter.h"
 
 int main()
 {
     PW21Z_OP::TrafficParticipant tp{};
     PW21Z_OP::TrafficParticipant tp2{};
     PW21Z_OP::TrafficLane tl{11};
-    PW21Z_OP::TrafficLaneWithLocalization tlwl{10, 1, 2, 3};
-    PW21Z_OP::Localization loc{3, 5, 7};
-    PW21Z_OP::TrafficLaneWithLocalization tlwl2{20, loc};
+    PW21Z_OP::TrafficLane tl2{11};
+    PW21Z_OP::TrafficLaneTeleporter teleport{tl, tl2};
 
-    std::cout << tlwl2._localization._x << tlwl2._localization._y << tlwl2._localization._z;
+    tl.add_TrafficParticipant(std::move(tp));
+    tl.get_TrafficParticipant(tp._uid);
+    tl.get_TrafficLaneTeleporter(teleport._uid).teleport_TrafficParticipant(tp._uid);
+    tl2.get_TrafficParticipant(tp._uid);
 
     return 0;
 }
