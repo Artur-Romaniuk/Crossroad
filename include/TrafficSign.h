@@ -14,9 +14,9 @@ namespace PW21Z_OP
 
     class TrafficSingWithLocalization : public TrafficSign
     {
-        const PW21Z_OP::Localization _localization;
-        TrafficSingWithLocalization(const PW21Z_OP::Localization &localization, bool is_active) : _localization{localization}, TrafficSign(is_active) {}
-        explicit TrafficSingWithLocalization(const PW21Z_OP::Localization &localization) : TrafficSingWithLocalization(localization, true) {}
+        const Localization _localization;
+        TrafficSingWithLocalization(const Localization &localization, bool is_active) : _localization{localization}, TrafficSign(is_active) {}
+        explicit TrafficSingWithLocalization(const Localization &localization) : TrafficSingWithLocalization(localization, true) {}
         TrafficSingWithLocalization(double x, double y, double z, bool is_active) : _localization{x, y, z}, TrafficSign(is_active) {}
         TrafficSingWithLocalization(double x, double y, double z) : TrafficSingWithLocalization(x, y, z, true) {}
     };
