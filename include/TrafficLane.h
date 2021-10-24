@@ -23,8 +23,8 @@ namespace PW21Z_OP
 
         TrafficLane() = delete;
         explicit TrafficLane(double length) : _length{length} {}
-        TrafficLane(const TrafficLane &tl) = delete;            //no copy constructor, not sure if I need it
-        TrafficLane &operator=(const TrafficLane &tl) = delete; //no copy operator
+        TrafficLane(const TrafficLane &other) = delete;            //no copy constructor, not sure if I need it
+        TrafficLane &operator=(const TrafficLane &other) = delete; //no copy operator
 
         void add_TrafficParticipant(const TrafficParticipant &tp);
         void add_TrafficParticipant(TrafficParticipant &&tp);
